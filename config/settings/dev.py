@@ -6,6 +6,7 @@ env = environ.Env(DEBUG=(bool, True))
 environ.Env.read_env(str(BASE_DIR / ".env"))
 
 SECRET_KEY = env.str("SECRET_KEY")
+# FIELD_ENCRYPTION_KEY = env.str("FIELD_ENCRYPTION_KEY")
 DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = ["*"]

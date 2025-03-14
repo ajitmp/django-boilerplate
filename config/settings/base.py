@@ -1,6 +1,19 @@
 from pathlib import Path
+import sys
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# sys.path.append((BASE_DIR / "apps"))
+
+# for django-encrypted-model-fields
+FIELD_ENCRYPTION_KEY = os.environ.get("FIELD_ENCRYPTION_KEY", "")
+# print(f"Key:{FIELD_ENCRYPTION_KEY}")
+
 
 DEFAULT_APP = [
     "django.contrib.admin",
@@ -12,9 +25,13 @@ DEFAULT_APP = [
 ]
 CREATED_APP = [
     "apps.core.apps.CoreConfig",
+    "apps.frontendform.apps.FrontendformConfig",
 ]  # custom apps goe here
 
-THIRD_PARTY_APP = []  # third party apps goe here
+THIRD_PARTY_APP = [
+    # "frontendform",
+    "encrypted_model_fields",
+]  # third party apps goe here
 
 INSTALLED_APPS = [*DEFAULT_APP, *CREATED_APP, *THIRD_PARTY_APP]
 

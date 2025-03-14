@@ -6,6 +6,8 @@ dev-migrate:
 	python3 manage.py migrate --settings=config.settings.dev
 dev-makemigrations:
 	python3 manage.py makemigrations --settings=config.settings.dev
+dev-createsuperuser:
+	python3 manage.py createsuperuser --settings=config.settings.dev
 dev-dbshell:
 	python3 manage.py dbshell --settings=config.settings.dev
 dev-shell:
@@ -16,3 +18,5 @@ dev-install:
 	pip install -r requirements/dev.txt
 dev-test:
 	python3 manage.py test --settings=config.settings.dev
+dev-encryptionkey:
+	python manage.py generate_encryption_key --settings=config.settings.dev
